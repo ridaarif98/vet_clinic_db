@@ -2,11 +2,9 @@
 /* Create Database*/
 CREATE DATABASE vet_clinic;
 
-
-
+/* This command will create animals table*/
 
 CREATE TABLE animals (
-    name varchar(100),
     id INT GENERATED ALWAYS AS IDENTITY,
     name varchar(200),
     date_of_birth DATE,
