@@ -35,3 +35,17 @@ UPDATE animals SET species='unspecified';
 -- Optional to verify species column is updated or not
 SELECT * FROM animals;
 ROLLBACK;
+
+BEGIN;
+
+-- Update the animals table by setting the species column to digimon for all animals that have a name ending in mon.
+UPDATE animals SET species='digimon' WHERE name LIKE '%mon';
+
+-- Update the animals table by setting the species column to pokemon for all animals that don't have species already set.
+UPDATE animals SET species='pokemon' WHERE species IS NULL;
+
+-- Commit the transaction.
+COMMIT;
+
+-- Verify that change was made and persists after commit.
+SELECT * FROM animals;
