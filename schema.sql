@@ -17,3 +17,31 @@ CREATE TABLE animals (
 
 -- Add a column species of type string to your animals table
 ALTER TABLE animals ADD COLUMN species VARCHAR(150);
+
+-- Create a table named owners with the following columns: id: integer, full_name: string, age: integer
+CREATE TABLE owners(
+  id INT GENERATED ALWAYS AS IDENTITY,  
+  full_name varchar(200),
+  age INT,
+  PRIMARY KEY(id)
+);
+
+
+-- Create a table named species with the following columns:id: integer, name: string
+CREATE TABLE species(
+    id INT GENERATED ALWAYS AS IDENTITY,
+    name VARCAHR(150),
+    PRIMARY KEY(id)
+);
+
+-- Modify animals table
+-- Remove column species
+ALTER TABLE animals DROP COLUMN species;
+
+-- Add column species_id which is a foreign key referencing species table
+ALTER TABLE animals ADD COLUMN species_id INT,
+ADD CONSTRAINT constraint_fk FOREIGN KEY (species_id) REFERENCES species (id); 
+
+-- Add column owner_id which is a foreign key referencing the owners table
+ALTER TABLE animals ADD COLUMN owners_id INT,
+ADD CONSTRAINT constraint_fk FOREIGN KEY (owners_id) REFERENCES owners (id);
