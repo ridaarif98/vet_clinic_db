@@ -35,3 +35,20 @@ INSERT INTO owners (full_name, age) VALUES ('Sam Smith', 34),
 
 -- Insert the data into the species table
 INSERT INTO species (name) VALUES ('Pokemon'), ('Digimon');
+
+-- Modify your inserted animals so it includes the species_id
+BEGIN;
+UPDATE animals SET species_id=1 WHERE name LIKE '%mon';
+UPDATE animals SET species_id=2 WHERE name NOT LIKE '%mon';
+COMMIT;
+
+
+-- Modify your inserted animals to include owner information (owner_id)
+BEGIN;
+UPDATE animals SET owners_id=1 WHERE name LIKE 'Agumon';
+UPDATE animals SET owners_id=2 WHERE name IN ('Gabumon', 'Pikachu');
+UPDATE animals SET owners_id=3 WHERE name IN ('Devimon', 'Plantmon');
+UPDATE animals SET owners_id=4 WHERE name IN ('Charmander', 'Squirtle', 'Blossom');
+UPDATE animals SET owners_id=5 WHERE name IN ('Angemon', 'Boarmon');
+COMMIT;
+
