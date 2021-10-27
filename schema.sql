@@ -17,3 +17,19 @@ CREATE TABLE animals (
 
 -- Add a column species of type string to your animals table
 ALTER TABLE animals ADD COLUMN species VARCHAR(150);
+
+-- Create a table named owners with the following columns: id: integer, full_name: string, age: integer
+CREATE TABLE owners(
+  id INT GENERATED ALWAYS AS IDENTITY,  
+  full_name varchar(200),
+  age INT,
+  PRIMARY KEY(id)
+);
+
+
+-- Create a table named species with the following columns:id: integer, name: string
+CREATE TABLE species(
+    id INT GENERATED ALWAYS AS IDENTITY,
+    name VARCAHR(150),
+    PRIMARY KEY(id)
+);
