@@ -33,3 +33,15 @@ CREATE TABLE species(
     name VARCAHR(150),
     PRIMARY KEY(id)
 );
+
+-- Modify animals table
+-- Remove column species
+ALTER TABLE animals DROP COLUMN species;
+
+-- Add column species_id which is a foreign key referencing species table
+ALTER TABLE animals ADD COLUMN species_id INT,
+ADD CONSTRAINT constraint_fk FOREIGN KEY (species_id) REFERENCES species (id); 
+
+-- Add column owner_id which is a foreign key referencing the owners table
+ALTER TABLE animals ADD COLUMN owners_id INT,
+ADD CONSTRAINT constraint_fk FOREIGN KEY (owners_id) REFERENCES owners (id);
