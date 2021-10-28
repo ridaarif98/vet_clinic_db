@@ -52,3 +52,32 @@ UPDATE animals SET owners_id=4 WHERE name IN ('Charmander', 'Squirtle', 'Blossom
 UPDATE animals SET owners_id=5 WHERE name IN ('Angemon', 'Boarmon');
 COMMIT;
 
+-- Insert the data for vets
+INSERT INTO vets (name, age, date_of_graduation) VALUES ('Vet William Tatcher', 45, 'Apr 23, 2000'),
+('Vet Maisy Smith', 26, 'Jan 17, 2019'),
+('Vet Stephanie Mendez', 64, 'May 4, 1981'),
+('Vet Jack Harkness', 38, 'Jun 8, 2008');
+
+-- Insert the data for specialties
+INSERT INTO specialization (vet_id, species_id) VALUES (1,1),
+(3,1),
+(3,2),
+(4,2);
+
+-- Insert data for visits
+INSERT INTO visits (animal_id, vet_id, date_of_visit) VALUES (1, 1, 'May 24, 2020'),
+(1, 3, 'Jul 22, 2020'),
+(5, 4, 'Feb 2, 2021'),
+(8, 2, 'Jan 5, 2020'),
+(8, 2, 'Mar 8, 2020'),
+(8, 2, 'May 14, 2020'),
+(2, 4, 'Feb 24,2021'),
+(4, 3, 'Sep 29,2019'),
+(9, 4, 'Nov 4,2020'),
+(6, 2, 'Jan 24,2019'),
+(6, 2, 'May 15,2019'),
+(6, 2, 'Feb 27,2020'),
+ (6, 2, 'Aug 3,2020'),
+(7, 3, 'May 24,2020'),
+(7, 1, 'Jan 11,2021');
+
