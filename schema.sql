@@ -71,7 +71,8 @@ CREATE TABLE visits(
     vet_id INT,
     animal_id INT,
     visit_date  DATE,
+    id INT GENERATED ALWAYS AS IDENTITY,
     FOREIGN KEY(vet_id) REFERENCES vets(id),
     FOREIGN KEY(animal_id) REFERENCES animals(id),
-    PRIMARY KEY(vet_id, animal_id)
+    PRIMARY KEY(id)
 );
