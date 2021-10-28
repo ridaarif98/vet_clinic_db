@@ -65,3 +65,13 @@ CREATE TABLE specializations(
     FOREIGN KEY(species_id) REFERENCES species(id),
     PRIMARY KEY(vet_id, species_id)
 );
+
+-- Create a "join table" called visits to handle relationship between the tables animals and vets
+CREATE TABLE visits(
+    vet_id INT,
+    animal_id INT,
+    visit_date  DATE,
+    FOREIGN KEY(vet_id) REFERENCES vets(id),
+    FOREIGN KEY(animal_id) REFERENCES animals(id),
+    PRIMARY KEY(vet_id, animal_id)
+);
