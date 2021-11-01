@@ -187,3 +187,21 @@ INNER JOIN species ON species.id = animals.specie_id
 WHERE vets.name = 'Vet Maisy Smith'
 GROUP BY species.name
 ORDER BY species_count DESC LIMIT 1;
+
+
+-- Queries to check performance  
+
+EXPLAIN ANALYZE SELECT COUNT(*) FROM visits where animal_id = 4;
+CREATE INDEX animal_ids ON visits (animal_id);
+EXPLAIN ANALYZE SELECT COUNT(*) FROM visits where animal_id = 4;
+
+
+EXPLAIN ANALYZE SELECT * FROM visits where vet_id = 2;
+CREATE INDEX vet_ids ON visits (vet_id);
+EXPLAIN ANALYZE SELECT * FROM visits where vet_id = 2;
+
+EXPLAIN ANALYZE SELECT * FROM owners where email = 'owner_18327@mail.com';
+CREATE INDEX owner_email ON owners (email ASC);
+EXPLAIN ANALYZE SELECT * FROM owners where email = 'owner_18327@mail.com';
+
+
