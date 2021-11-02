@@ -26,21 +26,30 @@ CREATE TABLE invoices (
 );
 
 
--- CREATE TABLE animals (
---     id INT GENERATED ALWAYS AS IDENTITY,
---     name varchar(200),
---     date_of_birth DATE,
---     escape_attempts INT,
---     neutuered BOOLEAN,
---     weight_kg FLOAT,
---     PRIMARY KEY(id)
--- );
+CREATE TABLE invoice_items (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    unit_price DECIMAL,
+    quantity INT,
+    total_price DECIMAL,
+    invoice_id INT,
+    treatment_id INT,
+    FOREIGN KEY(invoice_id) REFERENCES  invoices(id),
+    FOREIGN KEY(treatment_id) REFERENCES  treatments(id),
+    PRIMARY KEY(id)
+);
 
+CREATE TABLE treatments(
+    id INT GENERATED ALWAYS AS IDENTITY,
+    type VARCHAR(70),
+    name VARCHAR(100),
+    PRIMARY KEY(id)
+);
 
--- CREATE TABLE specializations(
---     vet_id INT,
---     species_id INT,
---     FOREIGN KEY(vet_id) REFERENCES vets(id),
---     FOREIGN KEY(species_id) REFERENCES species(id),
---     PRIMARY KEY(vet_id, species_id)
--- );
+CREATE TABLE treatment_histories (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    medical_history_id INT,
+    treatment_id INT,
+    FOREIGN KEY( medical_history_id) REFERENCES  medical_histories(id),
+    FOREIGN KEY(treatment_id) REFERENCES  treatments(id),
+    PRIMARY KEY(id)
+);
